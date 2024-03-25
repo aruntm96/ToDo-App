@@ -1,0 +1,61 @@
+<body>
+    <div class="header">
+        <h1>To Do App</h1>
+    </div>
+    <div class="container">
+        <div class="left">
+            <div>
+                <button class="add-task-btn" (click)="viewForm()">Add Task</button><br><br>
+                <form *ngIf="showForm" (ngSubmit)="createTask()" class="task-form">
+                    <div class="form-group">
+                        <label class="form-label">Task Name</label>
+                        <input type="text" [(ngModel)]="newTask.name" name="taskname" placeholder="Task to be done" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea type="text" [(ngModel)]="newTask.description" name="taskdescription" placeholder="Description of task" class="form-control"></textarea>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+            <br><br>
+            <div class="forms" *ngIf="editingTask">
+                <form (ngSubmit)="updateTask()" class="task-form">
+                    <div class="form-group">
+                        <label class="form-label">Edit Task name</label>
+                        <input type="text" [(ngModel)]="updatedTask.name" name="editTaskName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Edit Task Description</label>
+                        <input type="text" [(ngModel)]="updatedTask.description" name="editTaskDescription" class="form-control">
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <button (click)="cancelEdit()" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>   
+        </div>
+        <div class="right">
+            <div>
+                <div *ngIf="!(tasks.length>0); else taskList">
+                    <h2>No pending tasks</h2>
+                </div>
+                <ng-template #taskList>
+                    <table class="taskTable">
+                        <tr><th>Name</th><th>Description</th><th>Completed</th><th>Action</th></tr>
+                        <tr *ngFor="let task of tasks;">
+                            <td>{{task.name}}</td>
+                            <td>{{task.description}}</td>
+                            <td>{{task.completed}}</td>
+                            <td><button (click)="editTask(task)" class="btn btn-info">Edit</button> | 
+                                <button (click)="deleteTask(task.id)" class="btn btn-danger">Delete</button></td>
+                        </tr>
+                    </table>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</body>

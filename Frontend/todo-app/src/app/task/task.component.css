@@ -1,0 +1,106 @@
+.header {
+    background-color: chocolate;
+    color: antiquewhite;
+    padding: 20px 0;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.left, .right {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.add-task-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: rgb(14, 150, 240);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.task-form {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+    display: block;
+}
+
+.form-control {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.taskTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: #7bf697;
+}
+
+.taskTable th, .taskTable td {
+    border: 1px solid #0a0a0a;
+    padding: 8px;
+    width: 25%;
+    word-wrap: break-word;
+}
+
+.taskTable th {
+    background-color: rgb(14, 150, 240);
+    color: white;
+    white-space: nowrap; 
+}
+
+/* .taskTable tr:nth-child(even) {
+    background-color: #fae173;
+} */
+
+.taskTable tr:hover {
+    background-color: #88f1c7;
+}
+
+.btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
